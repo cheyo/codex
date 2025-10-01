@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>多任务打卡日历</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>多任务打卡</h1>
+        <form id="task-form" class="task-form">
+          <input
+            type="text"
+            id="task-name"
+            placeholder="输入任务名称，例如：晨跑"
+            aria-label="任务名称"
+            required
+            maxlength="30"
+          />
+          <button type="submit">添加任务</button>
+        </form>
+      </header>
+
+      <section id="tasks-container" class="tasks"></section>
+    </main>
+
+    <template id="task-template">
+      <article class="task-card">
+        <header class="task-card__header">
+          <h2 class="task-card__title"></h2>
+          <div class="task-card__actions">
+            <button type="button" class="task-card__today">今日打卡</button>
+            <button type="button" class="task-card__delete" aria-label="删除任务">删除</button>
+          </div>
+        </header>
+        <div class="task-card__calendar">
+          <div class="calendar__controls">
+            <button type="button" class="calendar__nav calendar__nav--prev" aria-label="上一月">‹</button>
+            <div class="calendar__label"></div>
+            <button type="button" class="calendar__nav calendar__nav--next" aria-label="下一月">›</button>
+          </div>
+          <div class="calendar__weekdays">
+            <span>日</span>
+            <span>一</span>
+            <span>二</span>
+            <span>三</span>
+            <span>四</span>
+            <span>五</span>
+            <span>六</span>
+          </div>
+          <div class="calendar__grid"></div>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
